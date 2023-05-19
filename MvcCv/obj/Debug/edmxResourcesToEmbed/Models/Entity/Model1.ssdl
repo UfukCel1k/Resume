@@ -74,6 +74,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Skills" Type="varchar" MaxLength="100" />
+    <Property Name="Rate" Type="tinyint" />
   </EntityType>
   <EntityContainer Name="DbCvModelStoreContainer">
     <EntitySet Name="TblAbout" EntityType="Self.TblAbout" Schema="dbo" store:Type="Tables" />

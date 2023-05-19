@@ -1,0 +1,100 @@
+﻿@using MvcCv.Models.Entity
+@model List<TblSkills>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdimLayout.cshtml";
+}
+
+@{ string colour = "";}
+@{ string labercolour = "";}
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Yetenek Listem</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <a href="/Skill/NewSkill/" class="btn btn-info">YetenekEkle</a>
+                                <br />
+                                <br />
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>Yetenek</th>
+                                            <th>Derece</th>
+                                            <th style="width: 40px">Oran</th>
+                                            <th>Düzenle</th>
+                                            <th>Sil</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            if (item.Rate >= 50 && item.Rate <= 50)
+                                            {
+                                                colour = "progress-bar bg-danger";
+                                                labercolour = "badge bg-danger";
+                                            }
+                                            if (item.Rate >= 51 && item.Rate <= 70)
+                                            {
+                                                colour = "progress-bar bg-warning";
+                                                labercolour = "badge bg-warning";
+                                            }
+                                            if (item.Rate >= 71 && item.Rate <= 84)
+                                            {
+                                                colour = "progress-bar bg-primary";
+                                                labercolour = "badge bg-primary";
+                                            }
+                                            if (item.Rate >= 85 && item.Rate <= 100)
+                                            {
+                                                colour = "progress-bar bg-success";
+                                                labercolour = "badge bg-success";
+                                            }
+                                            <tr>
+
+                                                <td>@item.ID.</td>
+                                                <td>@item.Skills</td>
+                                                <td>
+                                                    <div class="progress progress-xs">
+                                                        <div class="@colour" style="width: @item.Rate%"></div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="@labercolour">@item.Rate%</span></td>
+                                                <td>
+                                                    <a class="btn btn-info btn-sm" href="/Skill/UpdateSkill/@item.ID">
+                                                        <i class="fas fa-pencil-alt">
+                                                        </i>
+                                                        Düzenle
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-danger btn-sm" href="/Skill/RemoveSkill/@item.ID">
+                                                        <i class="fas fa-trash">
+                                                        </i>
+                                                        Sil
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+

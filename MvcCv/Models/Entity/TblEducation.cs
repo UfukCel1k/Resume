@@ -11,14 +11,20 @@ namespace MvcCv.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TblEducation
     {
         public int ID { get; set; }
+        [Required(ErrorMessage ="Bu alaný boþ geçemezsiniz.")]
         public string Heading { get; set; }
+        [Required(ErrorMessage ="Bu alaný boþ geçemezsiniz.")]
         public string subtitle1 { get; set; }
+        [Required(ErrorMessage ="Bu alaný boþ geçemezsiniz.")]
         public string subtitle2 { get; set; }
+        [StringLength(10, ErrorMessage ="Lütfen en fazla 10 karakterlik veri giriþi yapýn")]
         public string GNO { get; set; }
+        [Required(ErrorMessage ="Bu alaný boþ geçemezsiniz.")]
         public string Date { get; set; }
     }
 }
