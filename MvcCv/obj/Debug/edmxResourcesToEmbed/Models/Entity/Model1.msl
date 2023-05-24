@@ -18,6 +18,7 @@
     <EntitySetMapping Name="TblCertificates">
       <EntityTypeMapping TypeName="DbCvModel.TblCertificates">
         <MappingFragment StoreEntitySet="TblCertificates">
+          <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>

@@ -19,6 +19,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Description" Type="varchar" MaxLength="250" />
+    <Property Name="Date" Type="varchar" MaxLength="30" />
   </EntityType>
   <EntityType Name="TblContact">
     <Key>
