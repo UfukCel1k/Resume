@@ -10,7 +10,7 @@ namespace MvcCv.Controllers
 {
     public class SkillController : Controller
     {
-        GenericRepository<TblSkills> repo = new GenericRepository<TblSkills>();
+        GenericRepository<Skill> repo = new GenericRepository<Skill>();
         public ActionResult Index()
         {
             var value = repo.List();
@@ -23,7 +23,7 @@ namespace MvcCv.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult NewSkill(TblSkills p)
+        public ActionResult NewSkill(Skill p)
         {
             repo.TAdd(p);
             return RedirectToAction("Index");
@@ -44,7 +44,7 @@ namespace MvcCv.Controllers
             return View(skill);
         }
         [HttpPost]
-        public ActionResult UpdateSkill(TblSkills t)
+        public ActionResult UpdateSkill(Skill t)
         {
             var y = repo.Find(x => x.ID == t.ID);
             y.Skills = t.Skills;

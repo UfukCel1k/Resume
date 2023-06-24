@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MvcCv.Repositories
 {
-    public class ExperienceRepository : GenericRepository<TblExperience>
+    public class ExperienceRepository : GenericRepository<Experience>
     {
     }
 }

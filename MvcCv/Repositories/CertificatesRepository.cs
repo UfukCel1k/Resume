@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MvcCv.Repositories
 {
-    public class CertificatesRepository : GenericRepository<TblCertificates>
+    public class CertificatesRepository : GenericRepository<Certificates>
     {
     }
 }

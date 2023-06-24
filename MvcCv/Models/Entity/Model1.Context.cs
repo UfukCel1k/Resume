@@ -13,10 +13,10 @@ namespace MvcCv.Models.Entity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DbCvEntities : DbContext
+    public partial class DbPortfolioEntities : DbContext
     {
-        public DbCvEntities()
-            : base("name=DbCvEntities")
+        public DbPortfolioEntities()
+            : base("name=DbPortfolioEntities")
         {
         }
     
@@ -25,13 +25,14 @@ namespace MvcCv.Models.Entity
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<TblAbout> TblAbout { get; set; }
-        public virtual DbSet<TblCertificates> TblCertificates { get; set; }
-        public virtual DbSet<TblContact> TblContact { get; set; }
-        public virtual DbSet<TblEducation> TblEducation { get; set; }
-        public virtual DbSet<TblExperience> TblExperience { get; set; }
-        public virtual DbSet<TblInterests> TblInterests { get; set; }
-        public virtual DbSet<TblLogin> TblLogin { get; set; }
-        public virtual DbSet<TblSkills> TblSkills { get; set; }
+        public virtual DbSet<About> About { get; set; }
+        public virtual DbSet<Certificates> Certificates { get; set; }
+        public virtual DbSet<Contact> Contact { get; set; }
+        public virtual DbSet<Education> Education { get; set; }
+        public virtual DbSet<Experience> Experience { get; set; }
+        public virtual DbSet<Interest> Interest { get; set; }
+        public virtual DbSet<Login> Login { get; set; }
+        public virtual DbSet<Skill> Skill { get; set; }
+        public virtual DbSet<SocialMedia> SocialMedia { get; set; }
     }
 }

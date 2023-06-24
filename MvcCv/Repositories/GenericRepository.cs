@@ -12,7 +12,7 @@ namespace MvcCv.Repositories
     //T değeri bir sınıf olması şartıyla ve newlenebilir olmalıdır.
     public class GenericRepository<T> where T : class, new()
     {
-        DbCvEntities db = new DbCvEntities();
+        DbPortfolioEntities db = new DbPortfolioEntities();
 
         public List<T> List()
         {

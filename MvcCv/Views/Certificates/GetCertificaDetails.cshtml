@@ -1,0 +1,21 @@
+﻿@model MvcCv.Models.Entity.Certificates
+
+@{
+    ViewBag.Title = "GetCertificaDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h4>Sertifika Düzenleme Sayfası</h4>
+<br />
+<form method="post">
+    @Html.Label("Sertifika Açıklaması")
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+    <br />
+    @Html.Label("Derece")
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+    <a href="/Certificates/RemoveCertificate/@ViewBag.d" class="btn btn-danger">Sil</a>
+</form>
+

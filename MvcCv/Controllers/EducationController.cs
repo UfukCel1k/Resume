@@ -10,7 +10,7 @@ namespace MvcCv.Controllers
 {
     public class EducationController : Controller
     {
-        GenericRepository<TblEducation> repo = new GenericRepository<TblEducation>();
+        GenericRepository<Education> repo = new GenericRepository<Education>();
         public ActionResult Index()
         {
             var value = repo.List();
@@ -23,7 +23,7 @@ namespace MvcCv.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult AddEducation(TblEducation p)
+        public ActionResult AddEducation(Education p)
         {
             //Eğer validation durumlar geçerli olmazsa veri girişi yapılmıcak ve aynı sayfaya yönlendirecek.
             if (!ModelState.IsValid)
@@ -48,7 +48,7 @@ namespace MvcCv.Controllers
             return View(education);
         }
         [HttpPost]
-        public ActionResult UpdateEducation(TblEducation t)
+        public ActionResult UpdateEducation(Education t)
         {
             if (!ModelState.IsValid)
             {

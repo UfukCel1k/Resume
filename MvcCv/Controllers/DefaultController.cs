@@ -9,41 +9,47 @@ namespace MvcCv.Controllers
 {
     public class DefaultController : Controller
     {
-        DbCvEntities db = new DbCvEntities();
+        DbPortfolioEntities db = new DbPortfolioEntities();
 
         public ActionResult Index()
         {
-            var values = db.TblAbout.ToList();
+            var values = db.About.ToList();
             return View(values);
         }
 
         public PartialViewResult Experience()
         {
-            var values = db.TblExperience.ToList();
+            var values = db.Experience.ToList();
             return PartialView(values);
+        }
+
+        public PartialViewResult SocialMedia()
+        {
+            var socialMedia = db.SocialMedia.Where(x => x.Durum == true).ToList();
+            return PartialView(socialMedia);
         }
 
         public PartialViewResult Education()
         {
-            var values = db.TblEducation.ToList();
+            var values = db.Education.ToList();
             return PartialView(values);
         }
 
         public PartialViewResult Skills()
         {
-            var values = db.TblSkills.ToList();
+            var values = db.Skill.ToList();
             return PartialView(values);
         }
 
         public PartialViewResult Interests()
         {
-            var values = db.TblInterests.ToList();
+            var values = db.Interest.ToList();
             return PartialView(values);
         }
 
         public PartialViewResult Certificates()
         {
-            var values = db.TblCertificates.ToList();
+            var values = db.Certificates.ToList();
             return PartialView(values);
         }
 
@@ -56,11 +62,11 @@ namespace MvcCv.Controllers
 
         //Sayfada etkileşime girildiğinde burası çalışacak
         [HttpPost]
-        public PartialViewResult Contact(TblContact t)
+        public PartialViewResult Contact(Contact t)
         {
             //Ekleme işlemi yapmadan önce bugünün kısa tarihini getir
             t.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
-            db.TblContact.Add(t);
+            db.Contact.Add(t);
             db.SaveChanges();
             return PartialView();
         }

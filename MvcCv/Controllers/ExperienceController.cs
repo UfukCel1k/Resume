@@ -24,7 +24,7 @@ namespace MvcCv.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult AddExperience(TblExperience p)
+        public ActionResult AddExperience(Experience p)
         {
             repo.TAdd(p);
             return RedirectToAction("Index");
@@ -32,7 +32,7 @@ namespace MvcCv.Controllers
 
         public ActionResult RemoveExperience(int id)
         {
-            TblExperience t = repo.Find(x => x.ID == id);
+            Experience t = repo.Find(x => x.ID == id);
             repo.TDelete(t);
             return RedirectToAction("Index");
         }
@@ -40,13 +40,13 @@ namespace MvcCv.Controllers
         [HttpGet]
         public ActionResult GetExperience(int id)
         {
-            TblExperience t = repo.Find(x => x.ID == id);
+            Experience t = repo.Find(x => x.ID == id);
             return View(t);
         }
         [HttpPost]
-        public ActionResult GetExperience(TblExperience p)
+        public ActionResult GetExperience(Experience p)
         {
-            TblExperience t = repo.Find(x => x.ID == p.ID);
+            Experience t = repo.Find(x => x.ID == p.ID);
             t.Heading = p.Heading;
             t.subtitle = p.subtitle;
             t.Date = p.Date;

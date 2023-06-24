@@ -4,29 +4,29 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DbCvModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="TblAbout">
+    <Schema Namespace="DbPortfolioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="About">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="30" />
           <Property Name="Surname" Type="varchar" MaxLength="30" />
-          <Property Name="Adress" Type="varchar" MaxLength="100" />
+          <Property Name="Address" Type="varchar" MaxLength="100" />
           <Property Name="Phone" Type="varchar" MaxLength="20" />
           <Property Name="Mail" Type="varchar" MaxLength="50" />
           <Property Name="Description" Type="varchar(max)" />
           <Property Name="İmage" Type="varchar" MaxLength="100" />
         </EntityType>
-        <EntityType Name="TblCertificates">
+        <EntityType Name="Certificates">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="250" />
-          <Property Name="Date" Type="varchar" MaxLength="30" />
+          <Property Name="Date" Type="varchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="TblContact">
+        <EntityType Name="Contact">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -37,18 +37,18 @@
           <Property Name="Message" Type="varchar" MaxLength="1000" />
           <Property Name="Date" Type="date" />
         </EntityType>
-        <EntityType Name="TblEducation">
+        <EntityType Name="Education">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Heading" Type="varchar" MaxLength="100" />
-          <Property Name="subtitle1" Type="varchar" MaxLength="100" />
-          <Property Name="subtitle2" Type="varchar" MaxLength="100" />
-          <Property Name="GNO" Type="varchar" MaxLength="10" />
-          <Property Name="Date" Type="varchar" MaxLength="100" />
+          <Property Name="Heading" Type="nchar" MaxLength="100" />
+          <Property Name="subtitle1" Type="nchar" MaxLength="100" />
+          <Property Name="subtitle2" Type="nchar" MaxLength="100" />
+          <Property Name="GNO" Type="nchar" MaxLength="10" />
+          <Property Name="Date" Type="nchar" MaxLength="100" />
         </EntityType>
-        <EntityType Name="TblExperience">
+        <EntityType Name="Experience">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -58,7 +58,7 @@
           <Property Name="Description" Type="varchar(max)" />
           <Property Name="Date" Type="varchar" MaxLength="100" />
         </EntityType>
-        <EntityType Name="TblInterests">
+        <EntityType Name="Interest">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -66,7 +66,7 @@
           <Property Name="Description1" Type="varchar" MaxLength="500" />
           <Property Name="Description2" Type="varchar" MaxLength="500" />
         </EntityType>
-        <EntityType Name="TblLogin">
+        <EntityType Name="Login">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -74,50 +74,61 @@
           <Property Name="UserName" Type="varchar" MaxLength="20" />
           <Property Name="Password" Type="varchar" MaxLength="20" />
         </EntityType>
-        <EntityType Name="TblSkills">
+        <EntityType Name="Skill">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Skills" Type="varchar" MaxLength="100" />
+          <Property Name="Skills" Type="varchar" MaxLength="50" />
           <Property Name="Rate" Type="tinyint" />
         </EntityType>
-        <EntityContainer Name="DbCvModelStoreContainer">
-          <EntitySet Name="TblAbout" EntityType="Self.TblAbout" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TblCertificates" EntityType="Self.TblCertificates" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TblContact" EntityType="Self.TblContact" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TblEducation" EntityType="Self.TblEducation" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TblExperience" EntityType="Self.TblExperience" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TblInterests" EntityType="Self.TblInterests" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TblLogin" EntityType="Self.TblLogin" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TblSkills" EntityType="Self.TblSkills" Schema="dbo" store:Type="Tables" />
+        <EntityType Name="SocialMedia">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Link" Type="varchar" MaxLength="50" />
+          <Property Name="İcon" Type="varchar" MaxLength="50" />
+          <Property Name="Durum" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="DbPortfolioModelStoreContainer">
+          <EntitySet Name="About" EntityType="Self.About" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Certificates" EntityType="Self.Certificates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Education" EntityType="Self.Education" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Experience" EntityType="Self.Experience" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Interest" EntityType="Self.Interest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Skill" EntityType="Self.Skill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SocialMedia" EntityType="Self.SocialMedia" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DbCvModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="TblAbout">
+      <Schema Namespace="DbPortfolioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="About">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Adress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="İmage" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="TblCertificates">
+        <EntityType Name="Certificates">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="Date" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="TblContact">
+        <EntityType Name="Contact">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -128,18 +139,18 @@
           <Property Name="Message" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Name="Date" Type="DateTime" Precision="0" />
         </EntityType>
-        <EntityType Name="TblEducation">
+        <EntityType Name="Education">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Heading" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="subtitle1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="subtitle2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="GNO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Date" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Heading" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="subtitle1" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="subtitle2" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="GNO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Date" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
         </EntityType>
-        <EntityType Name="TblExperience">
+        <EntityType Name="Experience">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -149,7 +160,7 @@
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Date" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="TblInterests">
+        <EntityType Name="Interest">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -157,7 +168,7 @@
           <Property Name="Description1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="Description2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="TblLogin">
+        <EntityType Name="Login">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -165,37 +176,48 @@
           <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="TblSkills">
+        <EntityType Name="Skill">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Skills" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Skills" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Rate" Type="Byte" />
         </EntityType>
-        <EntityContainer Name="DbCvEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="TblAbout" EntityType="Self.TblAbout" />
-          <EntitySet Name="TblCertificates" EntityType="Self.TblCertificates" />
-          <EntitySet Name="TblContact" EntityType="Self.TblContact" />
-          <EntitySet Name="TblEducation" EntityType="Self.TblEducation" />
-          <EntitySet Name="TblExperience" EntityType="Self.TblExperience" />
-          <EntitySet Name="TblInterests" EntityType="Self.TblInterests" />
-          <EntitySet Name="TblLogin" EntityType="Self.TblLogin" />
-          <EntitySet Name="TblSkills" EntityType="Self.TblSkills" />
+        <EntityContainer Name="DbPortfolioEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="About" EntityType="Self.About" />
+          <EntitySet Name="Certificates" EntityType="Self.Certificates" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" />
+          <EntitySet Name="Education" EntityType="Self.Education" />
+          <EntitySet Name="Experience" EntityType="Self.Experience" />
+          <EntitySet Name="Interest" EntityType="Self.Interest" />
+          <EntitySet Name="Login" EntityType="Self.Login" />
+          <EntitySet Name="Skill" EntityType="Self.Skill" />
+          <EntitySet Name="SocialMedia" EntityType="DbPortfolioModel.SocialMedia" />
         </EntityContainer>
+        <EntityType Name="SocialMedia">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Link" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="İcon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Durum" Type="Boolean" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DbCvModelStoreContainer" CdmEntityContainer="DbCvEntities">
-          <EntitySetMapping Name="TblAbout">
-            <EntityTypeMapping TypeName="DbCvModel.TblAbout">
-              <MappingFragment StoreEntitySet="TblAbout">
+        <EntityContainerMapping StorageEntityContainer="DbPortfolioModelStoreContainer" CdmEntityContainer="DbPortfolioEntities">
+          <EntitySetMapping Name="About">
+            <EntityTypeMapping TypeName="DbPortfolioModel.About">
+              <MappingFragment StoreEntitySet="About">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Mail" ColumnName="Mail" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -203,18 +225,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TblCertificates">
-            <EntityTypeMapping TypeName="DbCvModel.TblCertificates">
-              <MappingFragment StoreEntitySet="TblCertificates">
+          <EntitySetMapping Name="Certificates">
+            <EntityTypeMapping TypeName="DbPortfolioModel.Certificates">
+              <MappingFragment StoreEntitySet="Certificates">
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TblContact">
-            <EntityTypeMapping TypeName="DbCvModel.TblContact">
-              <MappingFragment StoreEntitySet="TblContact">
+          <EntitySetMapping Name="Contact">
+            <EntityTypeMapping TypeName="DbPortfolioModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
                 <ScalarProperty Name="Mail" ColumnName="Mail" />
@@ -224,9 +246,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TblEducation">
-            <EntityTypeMapping TypeName="DbCvModel.TblEducation">
-              <MappingFragment StoreEntitySet="TblEducation">
+          <EntitySetMapping Name="Education">
+            <EntityTypeMapping TypeName="DbPortfolioModel.Education">
+              <MappingFragment StoreEntitySet="Education">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Heading" ColumnName="Heading" />
                 <ScalarProperty Name="subtitle1" ColumnName="subtitle1" />
@@ -236,9 +258,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TblExperience">
-            <EntityTypeMapping TypeName="DbCvModel.TblExperience">
-              <MappingFragment StoreEntitySet="TblExperience">
+          <EntitySetMapping Name="Experience">
+            <EntityTypeMapping TypeName="DbPortfolioModel.Experience">
+              <MappingFragment StoreEntitySet="Experience">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Heading" ColumnName="Heading" />
                 <ScalarProperty Name="subtitle" ColumnName="subtitle" />
@@ -247,30 +269,41 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TblInterests">
-            <EntityTypeMapping TypeName="DbCvModel.TblInterests">
-              <MappingFragment StoreEntitySet="TblInterests">
+          <EntitySetMapping Name="Interest">
+            <EntityTypeMapping TypeName="DbPortfolioModel.Interest">
+              <MappingFragment StoreEntitySet="Interest">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Description1" ColumnName="Description1" />
                 <ScalarProperty Name="Description2" ColumnName="Description2" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TblLogin">
-            <EntityTypeMapping TypeName="DbCvModel.TblLogin">
-              <MappingFragment StoreEntitySet="TblLogin">
+          <EntitySetMapping Name="Login">
+            <EntityTypeMapping TypeName="DbPortfolioModel.Login">
+              <MappingFragment StoreEntitySet="Login">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TblSkills">
-            <EntityTypeMapping TypeName="DbCvModel.TblSkills">
-              <MappingFragment StoreEntitySet="TblSkills">
-                <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <EntitySetMapping Name="Skill">
+            <EntityTypeMapping TypeName="DbPortfolioModel.Skill">
+              <MappingFragment StoreEntitySet="Skill">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Skills" ColumnName="Skills" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SocialMedia">
+            <EntityTypeMapping TypeName="DbPortfolioModel.SocialMedia">
+              <MappingFragment StoreEntitySet="SocialMedia">
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+                <ScalarProperty Name="İcon" ColumnName="İcon" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
