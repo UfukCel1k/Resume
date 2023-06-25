@@ -8,6 +8,7 @@ using System.Web.Security;
 
 namespace MvcCv.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         [HttpGet]
@@ -25,13 +26,20 @@ namespace MvcCv.Controllers
             {
                 FormsAuthentication.SetAuthCookie(value.UserName, false);
                 Session["UserName"] = value.UserName.ToString();
-                return RedirectToAction("Index", "Experience");
+                return RedirectToAction("Index", "About");
             }
             else
             {
-                return RedirectToAction("Index", "Experience");
+                return RedirectToAction("Index", "About");
             }
-
         }
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Index", "Login");
+        }
+
     }
 }

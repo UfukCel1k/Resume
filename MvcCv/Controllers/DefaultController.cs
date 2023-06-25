@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace MvcCv.Controllers
 {
+    [AllowAnonymous]
     public class DefaultController : Controller
     {
         DbPortfolioEntities db = new DbPortfolioEntities();
